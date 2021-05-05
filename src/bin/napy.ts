@@ -43,6 +43,10 @@ cli
       }
     }
 
+    if (args.includes('-v') || args.includes('--version')) {
+      log(`napy/${pkg.version}`);
+    }
+
     if (isYarn) {
       log(`> yarn ${args.join(' ')}`);
       execa(`yarn`, args, { stdio: 'inherit' });
@@ -71,8 +75,5 @@ cli
       execa('npm', ['install', ...args], { stdio: 'inherit' });
     }
   });
-
-cli.help();
-cli.version(pkg.version);
 
 cli.parse();
