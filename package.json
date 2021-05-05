@@ -24,7 +24,7 @@
     "url": "https://github.com/anymaniax/napy"
   },
   "scripts": {
-    "build": "tsup-node ./src/bin/napy.ts --minify --clean --out-dir dist/bin",
+    "build": "tsup ./src/bin/napy.ts --minify --clean --out-dir dist/bin",
     "dev": "tsup-node ./src/bin/napy.ts --clean --watch src --out-dir dist/bin",
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write 'src/**/*.{js,ts}'",
