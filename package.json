@@ -10,19 +10,10 @@
     "napy": "dist/bin/napy.js"
   },
   "keywords": [
-    "rest",
-    "client",
-    "swagger",
-    "open-api",
-    "fetch",
-    "data fetching",
-    "code-generation",
-    "angular",
-    "react",
-    "react-query",
-    "msw",
-    "mock",
-    "axios"
+    "npm",
+    "yarn",
+    "compat",
+    "package manager"
   ],
   "author": {
     "name": "Victor Bury",
