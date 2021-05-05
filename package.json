@@ -1,7 +1,7 @@
 {
   "name": "napy",
   "description": "Cli to handle yarn and npm easily",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "files": [
     "dist"
