@@ -45,8 +45,7 @@ cli
 
     if (isYarn) {
       log(`> yarn ${args.join(' ')}`);
-      // @ts-ignore
-      await execa(`yarn`, args).stdout.pipe(process.stdout);
+      execa(`yarn`, args, { stdio: 'inherit' });
     }
 
     if (isNpm) {
@@ -56,25 +55,20 @@ cli
 
         if (isNpmCommand) {
           log(`> npm ${args.join(' ')}`);
-          const { stdout } = await execa('npm', args);
-          log(stdout);
+          execa('npm', args, { stdio: 'inherit' });
+
           return;
         }
 
         const options = args.filter((arg) => arg.startsWith('-'));
         log(`> npm run ${command} -- ${options.join(' ')}`);
-        const subprocess = execa('npm', ['run', command, '--', ...options]);
+        execa('npm', ['run', command, '--', ...options], { stdio: 'inherit' });
 
-        // @ts-ignore
-        subprocess.stdout.pipe(process.stdout);
-
-        await subprocess;
         return;
       }
 
       log(`> npm install ${args.join(' ')}`);
-      const { stdout } = await execa('npm', ['install', ...args]);
-      log(stdout);
+      execa('npm', ['install', ...args], { stdio: 'inherit' });
     }
   });
 
