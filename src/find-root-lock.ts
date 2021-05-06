@@ -4,8 +4,10 @@ import path from 'upath';
 export const findRootLock = () => {
   let isPackage = false;
   let relativePath = '';
+  const max = process.cwd().split('/').length;
+  let count = 0;
 
-  while (!isPackage) {
+  while (max === count || isPackage) {
     isPackage = fs.existsSync(relativePath + 'package.json');
 
     if (!isPackage) {
